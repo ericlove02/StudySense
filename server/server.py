@@ -1,5 +1,6 @@
 import time
 import pandas as pd
+import numpy as np
 import csv
 import json
 from flask import Flask, request
@@ -37,14 +38,14 @@ def get_student_page():
     parent = request.form.get('Parental Status') or 2
     moc = request.form.get('Mother Occupation') or 2
     foc = request.form.get('Father Occupation') or 2
-    study = request.form.get('Weekly Study Hours') or 2
-    read = request.form.get('Reading Frequency') or 2
-    seminar = request.form.get('Attendance to Seminars') or 2
+    study = request.form.get('Weekly Study Hours') or 1
+    read = request.form.get('Reading Frequency') or 1
+    seminar = request.form.get('Attendance to Seminars') or 1
     projects = request.form.get('Impact of Projects') or 2
-    attendance = request.form.get('Attendance to Classes') or 2
-    exam1 = request.form.get('Exam 1 Prep') or 2
-    exam2 = request.form.get('Exam 2 Prep') or 2
-    notes = request.form.get('Note Taking') or 2
+    attendance = request.form.get('Attendance to Classes') or 1
+    exam1 = request.form.get('Exam 1 Prep') or 1
+    exam2 = request.form.get('Exam 2 Prep') or 1
+    notes = request.form.get('Note Taking') or 1
     listen = request.form.get('Listening in Class') or 2
     discussion = request.form.get('Discussion Interest') or 2
     lasSemGrade = request.form.get('Grade Last Semester') or 2
@@ -88,13 +89,14 @@ def get_student_page():
             lasSemGradeItem = row['Cumulative grade point average in the last semester (/4.00)']
             expectedGradeItem = row['Expected Cumulative grade point average in the graduation (/4.00)']
             
-            if(inRange(age,ageItem,1) and (sexItem == sex) and inRange(hs,hsItem,1) and inRange(schol,scholItem,2) and (partner == partnerItem) and inRange(salary,salaryItem,1) and inRange(transport,transportItem,1) and inRange(accomodation,accomodationItem,1) and inRange(med,medItem,1) and inRange(fed,fedItem,1) and inRange(sis,sisItem,2) and (parent == parentItem) and inRange(moc,mocItem,2) and inRange(foc,focItem,2) and inRange(lasSemGrade,lasSemGradeItem,2)):
-                dataSet.append([ageItem,sexItem,hsItem,scholItem,addlWorkItem,activityItem,partnerItem,salaryItem,transportItem,accomodationItem,medItem,fedItem,sisItem,parentItem,mocItem,focItem,studyItem,readItem,seminarItem,projectsItem,attendanceItem,exam1Item,exam2Item,notesItem,listenItem,discussionItem,lasSemGradeItem,expectedGradeItem])
+            # if(inRange(age,ageItem,1) and (sexItem == sex) and inRange(hs,hsItem,1) and inRange(schol,scholItem,2) and (partner == partnerItem) and inRange(salary,salaryItem,1) and inRange(transport,transportItem,1) and inRange(accomodation,accomodationItem,1) and inRange(med,medItem,1) and inRange(fed,fedItem,1) and inRange(sis,sisItem,2) and (parent == parentItem) and inRange(moc,mocItem,2) and inRange(foc,focItem,2) and inRange(lasSemGrade,lasSemGradeItem,2)):
+                
+            dataSet.append([ageItem,sexItem,hsItem,scholItem,addlWorkItem,activityItem,partnerItem,salaryItem,transportItem,accomodationItem,medItem,fedItem,sisItem,parentItem,mocItem,focItem,studyItem,readItem,seminarItem,projectsItem,attendanceItem,exam1Item,exam2Item,notesItem,listenItem,discussionItem,lasSemGradeItem,expectedGradeItem])
                          
-    dataFrame = pd.DataFrame(dataSet,columns=categories,dtype=int)
+    dataFrame = pd.DataFrame(dataSet,columns=categories)
     
     #split the dataframe values to have all inputs and grade as output
-    features = dataFrame.iloc[:,27]
+    features = dataFrame.iloc[:, 27].values.reshape(-1, 1)
     target = dataFrame['expectedGrade']
     
     #perform linear regression on inputs with respect to grade
