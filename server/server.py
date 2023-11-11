@@ -126,7 +126,25 @@ def student_page():
     couldImprove = [name for name, value in zip(couldChangeNames, couldChange) if value <= checkValsDict[name]]
     sortedOutput = [sublist for sublist in outputObjects if sublist[0] in couldImprove]
 
+    descriptions = {
+    'addlWork': 'Take on additional work',
+    'activity': 'Take part in an extracurricular activity',
+    'study': 'Increase time studying',
+    'read': 'Increase time reading material',
+    'seminar': 'Attend seminars for the class',
+    'attendance': 'Reduce absences in the class',
+    'exam1': 'Prepare more for exam 1',
+    'exam2': 'Prepare more for exam 2',
+    'notes': 'Take more notes during class',
+    'listen': 'Listen more in class'
+    }
     
+    converted_values = [descriptions[value] for value in sortedOutput]
+    
+    json_file_path = 'student_output.json'
+
+    with open(json_file_path, 'w') as json_file:
+        json.dump(converted_values, json_file)    
     
 
 if __name__ == "__main__":
