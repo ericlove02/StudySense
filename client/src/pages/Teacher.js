@@ -1,9 +1,12 @@
 import React from 'react'
-
+import NavBar from "../components/appNavBar";
 function Teacher() {
     return (
+
+        
         <div style={{ backgroundColor: '#eae6deff', padding: '10px', margin: 0, minHeight: '100vh' }}>
-         <div style={{ backgroundColor: '#eef7ffff ', color: 'black', padding: '10px', display: 'inline-block' }}>
+            <NavBar />
+         <div style={{ backgroundColor: '#eef7ffff ', color: 'black', padding: '10px', display: 'inline-block', marginTop: '5px' }}>
          <span style={{ fontSize: '55px', fontWeight: 'bold' }}> % at risk students </span>
                 <br/>
                 <br/>

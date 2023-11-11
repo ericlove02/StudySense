@@ -3,6 +3,7 @@ import React from 'react'
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import NavBar from "../components/appNavBar";
 
 function MultipleInputsExample({ label, placeholder }) {
     return (
@@ -18,12 +19,26 @@ function MultipleInputsExample({ label, placeholder }) {
     );
 }
 
+function RightBlock() {
+    return (
+        <div style={{ position: 'absolute', right: 0, top: 100, backgroundColor: '#eef7ffff', color: 'black', padding: '10px', width: '800px', minHeight: '50vh', marginRight: 15 }}>
+            <span style={{ fontSize: '35px', fontWeight: 'bold' }}> Results:  </span>
+            {<div>
+                if only I had a back end
+
+            </div>}
+
+
+        </div>
+    );
+}
+
 
 
 function Student() {
     return (
-
         <div style={{ backgroundColor: '#eae6deff', padding: '10px' }}>
+            <NavBar />
             <div className="main-container">
                 <div className="form-container">
 
@@ -47,6 +62,7 @@ function Student() {
                     <br />
                     <MultipleInputsExample label="Partner Status: " placeholder="Enter partner status" />
                     <br />
+                    <RightBlock></RightBlock>
                     <MultipleInputsExample label="Salary: " placeholder="Enter total salary" />
                     <br />
                     <MultipleInputsExample label="Transportation: " placeholder="Enter transportation choice" />
@@ -93,8 +109,9 @@ function Student() {
                     <br />
                     <MultipleInputsExample label="Output grade: " placeholder="Enter grade" />
                 </div>
-                <div className="sidebar">
-
+                <br />
+                <div style={{ backgroundColor: '#500000ff', padding: '10px', display: 'inline-block', width: 'auto' }}>
+                    <span style={{ fontSize: '25px', fontWeight: 'bold', color: 'white' }}> Submit </span>
                 </div>
             </div>
         </div>
