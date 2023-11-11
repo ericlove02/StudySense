@@ -23,10 +23,31 @@ function RightBlock() {
     return (
         <div style={{ position: 'absolute', right: 0, top: 100, backgroundColor: '#eef7ffff', color: 'black', padding: '10px', width: '800px', minHeight: '50vh', marginRight: 15 }}>
             <span style={{ fontSize: '35px', fontWeight: 'bold' }}> Results:  </span>
-            {<div>
-                if only I had a back end
+            <div>
+            <br/>
+            <br/>
+            <span style={{ fontSize: '25px' }}> Projected Grade:  </span>
 
-            </div>}
+                <br/>
+                <br/>
+
+                <span style={{ fontSize: '25px' }}> Area's to Improve:  </span>
+                <br/>
+                <br/>
+                <span style={{ fontSize: '20px' }}> Area X:  </span>
+                <br/>
+                <br/>
+                <span style={{ fontSize: '20px' }}> Area Y:  </span>
+                <br/>
+                <br/>
+                <span style={{ fontSize: '20px' }}> Area Z:  </span>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <span style={{ fontSize: '25px' }}> Projected Grade Post Improvement: ...  </span>
+
+            </div>
 
 
         </div>
