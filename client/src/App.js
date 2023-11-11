@@ -1,11 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Student from './pages/Student';
-import Teacher from './pages/Teacher';
+  import Home from './pages/Home';
+  import Student from './pages/Student';
+  import Teacher from './pages/Teacher';
+  
 
-function App() {
+  function App() {  
+    return (
+      <Teacher/>
 
   return (
     <Router>
