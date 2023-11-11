@@ -5,22 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 
+import NavBar from "../components/appNavBar";
 
-function NavBar() {
-    return (
-        <div>
-        <Navbar bg="light" style={{ backgroundColor: 'lightgray', zIndex: 1000 }}>
-          <Container className="d-flex justify-content-end">
-            <Nav>
-              <Nav.Link href="Home">Home</Nav.Link>
-              <Nav.Link href="Login">Login</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
-        <br />
-      </div>
-    );
-  }
 
 function Home() {
     return (
@@ -37,7 +23,7 @@ function Home() {
               </Card.Body>
             </Card>
     
-            <Button variant="primary" style={{ marginTop: '20px' }}>
+            <Button variant="primary" style={{ marginTop: '20px', width: '9rem', backgroundColor: '#eae6deff', borderRadius: '10px'  }}>
               Login
             </Button>
     
