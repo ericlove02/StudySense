@@ -8,22 +8,21 @@ import Teacher from './pages/Teacher';
 function App() {
 
   return (
-    <div><Teacher /></div>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Navigate replace to="/home" />} />
-    //     {/* <Route path="/" render={() => {
-    //       return (
-    //         // check if user is auth, if yes send home, else send to login
-    //         this.isAuth ?
-    //         <Navigate to="/home" /> :
-    //         <Navigate
-    //       ) }} />*/}
-    //     <Route path="/home" element={<Home />} />
-    //     <Route path="/student" element={<Student />} />
-    //     <Route path="/teacher" element={<Teacher />} />
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/home" />} />
+        {/* <Route path="/" render={() => {
+          return (
+            // check if user is auth, if yes send home, else send to login
+            this.isAuth ?
+            <Navigate to="/home" /> :
+            <Navigate
+          ) }} />*/}
+        <Route path="/home" element={<Home />} />
+        <Route path="/student" element={<Student />} />
+        <Route path="/teacher" element={<Teacher />} />
+      </Routes>
+    </Router>
   );
 }
 
