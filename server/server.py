@@ -10,9 +10,83 @@ from sklearn.metrics import mean_squared_error
 
 app = Flask(__name__)
 
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
+@app.route('/studentshii', methods=['POST'])
+def stu():
+    age = request.form.get('Student Age') 
+    sex = request.form.get('Sex') 
+    hs = request.form.get('High School Type') 
+    schol = request.form.get('Scholarship Type') 
+    addlWork = request.form.get('Additional Work') 
+    activity = request.form.get('Extracurricular Type') 
+    partner = request.form.get('Relationship Status') 
+    salary = request.form.get('Salary') 
+    transport = request.form.get('Transportation Method') 
+    accomodation = request.form.get('Accomodation Type') 
+    med = request.form.get('Mother Education') 
+    fed = request.form.get('Father Education') 
+    sis = request.form.get('Number of Sisters') 
+    parent = request.form.get('Parental Status') 
+    moc = request.form.get('Mother Occupation') 
+    foc = request.form.get('Father Occupation') 
+    study = request.form.get('Weekly Study Hours') 
+    read = request.form.get('Reading Frequency') 
+    seminar = request.form.get('Attendance to Seminars') 
+    projects = request.form.get('Impact of Projects') 
+    attendance = request.form.get('Attendance to Classes') 
+    exam1 = request.form.get('Exam 1 Prep') 
+    exam2 = request.form.get('Exam 2 Prep') 
+    notes = request.form.get('Note Taking') 
+    listen = request.form.get('Listening in Class') 
+    discussion = request.form.get('Discussion Interest') 
+    lasSemGrade = request.form.get('Grade Last Semester') 
+    expectedGrade = request.form.get('Expected Graduation GPA') 
+
+    descriptions = {
+    'addlWork': 'Take on additional work',
+    'activity': 'Take part in an extracurricular activity',
+    'study': 'Increase time studying',
+    'read': 'Increase time reading material',
+    'seminar': 'Attend seminars for the class',
+    'attendance': 'Reduce absences in the class',
+    'exam1': 'Prepare more for exam 1',
+    'exam2': 'Prepare more for exam 2',
+    'notes': 'Take more notes during class',
+    'listen': 'Listen more in class'
+    }
+
+    array = []
+
+    if addlWork == '1':
+        array.append(descriptions['addlWork'])
+
+    if activity == '1':
+        array.append(descriptions['activity'])
+
+    if study == '1':
+        array.append(descriptions['study'])
+
+    if read == '1':
+        array.append(descriptions['read'])
+
+    if seminar == '1':
+        array.append(descriptions['seminar'])
+
+    if attendance == '1':
+        array.append(descriptions['attendance'])
+
+    if exam1 == '1':
+        array.append(descriptions['exam1'])
+
+    if exam2 == '1':
+        array.append(descriptions['exam2'])
+
+    if notes == '1':
+        array.append(descriptions['notes'])
+
+    if listen == '1':
+        array.append(descriptions['listen'])
+
+    return json.dumps(array)
 
 def inRange(data, checkData, tolerance):
     if(int(checkData) <= data+tolerance) and (int(checkData) >= data-tolerance):
@@ -110,7 +184,7 @@ def get_student_page():
     
     #extract the weights from the models coefficients
     weights = regressionModel.coef_
-    
+
     #pair the weights with their category
     catAndWeight = []
     for weight, item in zip(weights, categories):
