@@ -9,7 +9,7 @@ function MultipleInputsExample({ label, placeholder }) {
       <div className="container">
         
         <div className="box">
-        <InputGroup className="mb-3" style={{ backgroundColor: '#F5F5DC' }}>
+        <InputGroup className="mb-3" style={{ backgroundColor: '#eae6deff' }}>
             <InputGroup.Text>{label}</InputGroup.Text>
             <Form.Control aria-label={label} placeholder={placeholder} />
           </InputGroup>
@@ -19,7 +19,7 @@ function MultipleInputsExample({ label, placeholder }) {
   }
   function Student() {
     return (
-        <div style={{ backgroundColor: '#F5F5DC', padding: '10px' }}>
+        <div style={{ backgroundColor: '#eae6deff', padding: '10px' }}>
         
         Student
         <br />

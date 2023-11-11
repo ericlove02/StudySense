@@ -7,8 +7,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
   
 
   function App() {  
-    return (
-      <Teacher/>
 
   return (
     <Router>
