@@ -21,7 +21,7 @@ function MultipleInputsExample({ label, placeholder }) {
 
 function RightBlock() {
     return (
-        <div style={{ position: 'absolute', right: 0, top: 100, backgroundColor: '#eef7ffff', color: 'black', padding: '10px', width: '800px', minHeight: '50vh', marginRight: 15 }}>
+        <div style={{ position: 'absolute', right: 0, top: 100, backgroundColor: '#eef7ffff', color: 'black', padding: '10px', width: '300px', minHeight: '50vh', marginRight: 15 }}>
             <span style={{ fontSize: '35px', fontWeight: 'bold' }}> Results:  </span>
             {<div>
                 if only I had a back end
