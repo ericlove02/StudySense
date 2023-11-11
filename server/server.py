@@ -14,13 +14,13 @@ def get_current_time():
     return {'time': time.time()}
 
 def inRange(data, checkData, tolerance):
-    if(checkData <= data+tolerance) and (checkData >= data-tolerance):
+    if(int(checkData) <= data+tolerance) and (int(checkData) >= data-tolerance):
         return True
     else:
         return False
 
-@app.route("/studentPageMetrics", methods=['POST'])
-def student_page():
+@app.route('/studentPageMetrics')
+def get_student_page():
     age = request.form.get('Student Age') or 2
     sex = request.form.get('Sex') or 2
     hs = request.form.get('High School Type') or 2
@@ -61,7 +61,7 @@ def student_page():
         for row in csv_reader:
             ageItem = row['Student Age']
             sexItem = row['Sex']
-            hsItem = row['Graduated high-school']
+            hsItem = row['Graduated high school']
             scholItem = row['Scholarship type']
             addlWorkItem = row['Additional work']
             activityItem = row['Regular artistic or sports activity']
@@ -141,10 +141,7 @@ def student_page():
     
     converted_values = [descriptions[value] for value in sortedOutput]
     
-    json_file_path = 'student_output.json'
-
-    with open(json_file_path, 'w') as json_file:
-        json.dump(converted_values, json_file)    
+    return json.dumps(converted_values)
     
 
 if __name__ == "__main__":
