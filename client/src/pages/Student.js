@@ -10,7 +10,6 @@ function MultipleInputsExample({ label, placeholder }) {
         
         <div className="box">
         <InputGroup className="mb-3" style={{ backgroundColor: '#eae6deff' }}>
-        <InputGroup className="mb-3" style={{ backgroundColor: '#eae6deff' }}>
             <InputGroup.Text>{label}</InputGroup.Text>
             <Form.Control aria-label={label} placeholder={placeholder} />
           </InputGroup>
@@ -18,23 +17,14 @@ function MultipleInputsExample({ label, placeholder }) {
       </div>
     );
   }
-
-  
-
   function Student() {
     return (
-        
         <div style={{ backgroundColor: '#eae6deff', padding: '10px' }}>
-        <div className="main-container">
-        <div className="form-container">
-
-        <span style={{ fontSize: '35px', fontWeight: 'bold'}}> Student Information:  </span>
         
+        Student
         <br />
         <br />
-
-        
-        <MultipleInputsExample label="Age: " placeholder="Enter Age"/> 
+        <MultipleInputsExample label="Age: " placeholder="Enter Age" />
         <br />
         <MultipleInputsExample label="Sex: " placeholder="Enter Sex" />
         <br />
@@ -93,11 +83,7 @@ function MultipleInputsExample({ label, placeholder }) {
         <MultipleInputsExample label="Course ID: " placeholder="Enter ID" />
         <br />
         <MultipleInputsExample label="Output grade: " placeholder="Enter grade" />
-        </div>
-        <div className="sidebar">
-            
-        </div>
-     </div>
+     
       </div>
 
     );
